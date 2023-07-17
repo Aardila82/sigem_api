@@ -1,0 +1,4 @@
+ALTER TABLE date_modified MODIFY columna date NULL;
+ALTER TABLE user_type MODIFY columna date NULL;
+
+SE CREO TABLA PERSONAL_ACCESS_TOKENS

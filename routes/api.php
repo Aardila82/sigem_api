@@ -46,6 +46,7 @@ Route::post("login", [AuthController::class,"login"]);
 Route::get("docs",  [DocsController::class,"docs"]);
 Route::put("cambio_contrasena/{user}", [AuthController::class,"cambio_contrasena"]);
 Route::get('texto_minutas',[Texto_minutaController::class, 'index']);
+Route::get('apoderados',[ApoderadoController::class, 'index']);
 
 Route::middleware('auth:sanctum')->group(function( ){
     //Autenticacion
@@ -54,18 +55,18 @@ Route::middleware('auth:sanctum')->group(function( ){
     Route::post("logout", [AuthController::class,"logout"]);
     Route::put("registroActualizado/{user}", [AuthController::class,"update"]);
     //Apoderados
-    Route::get('apoderados',[ApoderadoController::class, 'index']);
+
     Route::post('apoderados',[ApoderadoController::class, 'store']);
     Route::get('apoderados/{apoderado}',[ApoderadoController::class, 'show']);
     Route::put('apoderados/{apoderado}',[ApoderadoController::class, 'update']);
     Route::delete('apoderados/{apoderado}',[ApoderadoController::class, 'destroy']);
     //texto_minuta
-    
+
     Route::post('texto_minutas',[Texto_minutaController::class, 'store']);
     Route::get('texto_minutas/{texto_minuta}',[Texto_minutaController::class, 'show']);
     Route::put('texto_minutas/{texto_minuta}',[Texto_minutaController::class, 'update']);
     Route::post('texto_minutas/uploadFile/{cod_minuta}',[Texto_minutaController::class, 'uploadFile']);
-    
+
 
     Route::get('var_minutas/list/{var_minuta}',[Var_minutaController::class, 'index']);
     Route::post('var_minutas',[Var_minutaController::class, 'store']);
